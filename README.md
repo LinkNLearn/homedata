@@ -24,7 +24,7 @@ This is the main file we are going to want to use.  This includes all of the abo
 
 #### Illustration
 
-![house](https://github.com/LinkNLearn/homedata/img/house.png)
+![house](https://github.com/LinkNLearn/homedata/blob/master/img/house.png?raw=true)
 
 ### Sensors
 
