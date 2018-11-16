@@ -36,7 +36,7 @@ HTU21D - Digital Relative Humidity sensor with Temperature output
 
 [HTU21D Datasheet](https://github.com/LinkNLearn/homedata/blob/master/sensor-datasheets/HTU21D.pdf?raw=true)
 
-#### Main Floor
+#### Main Floor (First Floor)
 
 DHT22 - Capacitive-type humidity and temperature module/sensor
 
@@ -52,6 +52,10 @@ DHT22 - Capacitive-type humidity and temperature module/sensor
 * Humidity hysteresis +-0.3%RH
 * Long-term Stability +-0.5%RH/year
 * Sensing period Average: 2s
+
+CCS811 - Ultra-Low Power Digital Gas Sensor for Monitoring Indoor Air Quality
+
+[CCS811 Datasheet](https://github.com/LinkNLearn/homedata/blob/master/sensor-datasheets/DHT22.pdf?raw=true)
 
 
 #### Knee Wall (Attic)
