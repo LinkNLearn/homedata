@@ -55,7 +55,7 @@ DHT22 - Capacitive-type humidity and temperature module/sensor
 
 CCS811 - Ultra-Low Power Digital Gas Sensor for Monitoring Indoor Air Quality
 
-[CCS811 Datasheet](https://github.com/LinkNLearn/homedata/blob/master/sensor-datasheets/DHT22.pdf?raw=true)
+[CCS811 Datasheet](https://github.com/LinkNLearn/homedata/blob/master/sensor-datasheets/CCS811.pdf?raw=true)
 
 
 #### Knee Wall (Attic)
