@@ -1,0 +1,10 @@
+[{"id":0, "type":"IN_VEHICLE"},
+ {"id":1, "type":"BIKING"},
+ {"id":2, "type":"ON_FOOT"},
+ {"id":3, "type":"STILL"},
+ {"id":4, "type":"UNKOWN"},
+ {"id":7, "type":"WALKING"},
+ {"id":8, "type":"RUNNING"},
+ {"id":9, "type":"AEROBICS"},
+ {"id":31, "type":"GARDENING"},
+ {"id":32, "type":"GOLF"}]
