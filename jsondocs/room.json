@@ -1,0 +1,4 @@
+[{"id":0, "name":"Bedroom", "location":"Second Floor"},
+ {"id":1, "name":"Office", "location":"First Floor"},
+ {"id":3, "name":"Attic", "location":"Second Floor"},
+ {"id":6, "name":"Workshop", "location":"Basement"}]
