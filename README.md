@@ -71,3 +71,15 @@ VOC measures total volatile organic compounds (tVOC). CO2 is actually just eCO2 
 tVOC spikes if we are cooking food, painting inside the house, spraying hair spray and other activities that generate VOCs. The sensor does not distinguish between harmful and non-harmful VOCs. It's more of an early indicator for potential problems. I would be interested to know if the AC unit being on (decreases in household temperature when it's warm outside) correlates to increases in tVOCs. The refrigerant used in AC units is a VOC that should be a closed system. You could probably use the VOC number to determine if we had people over (frequent door open / close events following by a steady increase in tVOC). The individual data points aren't as accurate as the temperature data but the trends over a period of hours should be relevant.
 
 We painted our living room in the time period of data you have. That should show up as a multi-day increase in tVOC.
+
+## Initial Data Exploration
+
+The first thing we accomplished in terms of data analysis, was to simply look at the graph of the house temperature over time.
+As we can clearly see below, there are some outlier temperatures well over 1000 degrees.
+
+![house](https://github.com/LinkNLearn/homedata/blob/master/img/original_temp.png?raw=true)
+
+Obviously these are anomalies as the house would have been burned into vapor at the temperatures shown in the above picture.
+So, we cleaned these by setting all temperature values over a certain degree to "zero," to simply get a better idea of what
+the data should hypothetically look like, even though in practice we need to clean this up by completely eliminating the entries
+in the future.
