@@ -75,3 +75,34 @@ fig, ax = plt.subplots()
 ax.plot(timestamp0, temperature0)
 ax.plot(timestamp1, temperature1)
 plt.show()
+
+
+# Cleaning Rules - Creating Temperature Rails, Extracting Indicies
+HighTemp = 100
+LowTemp = 30
+validtemproom0 = []
+validtimeroom0 = []
+
+# for range of temperature0 - our new matrix of room0 temps
+for i in range(len(temperature0)):
+    if temperature0[i] < HighTemp and temperature0[i] > LowTemp:
+        validtemproom0.append(temperature0[i])
+        validtimeroom0.append(timestamp0[i])
+
+print('room0 temp data cleaned')
+print('room0 time data cleaned')
+
+
+validtemproom1 = []
+validtimeroom1 = []
+# for range of temperature0 - our new matrix of room0 temps
+for i in range(len(temperature1)):
+    if temperature1[i] < HighTemp and temperature1[i] > LowTemp:
+        validtemproom1.append(temperature1[i])
+        validtimeroom1.append(timestamp1[i])
+
+
+fig, ax = plt.subplots()
+ax.plot(validtimeroom0, validtemproom0)
+ax.plot(validtimeroom1, validtemproom1)
+plt.show()
