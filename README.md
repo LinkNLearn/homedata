@@ -77,9 +77,23 @@ We painted our living room in the time period of data you have. That should show
 The first thing we accomplished in terms of data analysis, was to simply look at the graph of the house temperature over time.
 As we can clearly see below, there are some outlier temperatures well over 1000 degrees.
 
-![house](https://github.com/LinkNLearn/homedata/blob/master/img/original_temp.png?raw=true)
+![early graph](https://github.com/LinkNLearn/homedata/blob/master/img/original_temp.png?raw=true)
 
-Obviously these are anomalies as the house would have been burned into vapor at the temperatures shown in the above picture.
-So, we cleaned these by setting all temperature values over a certain degree to "zero," to simply get a better idea of what
-the data should hypothetically look like, even though in practice we need to clean this up by completely eliminating the entries
-in the future.
+Obviously these are anomalies as the house would have been burned into vapor at the temperatures shown in the above picture.  So, we need to clean these by eliminating these data points.
+
+Further, this graph conflates both two different temperature sensors:
+
+* "room_id":0
+* "room_id":1
+
+We need to separate these out into two different data streams.
+
+## Looking Closer At Temperature Data After Separation
+
+![Rooms Separated](https://github.com/LinkNLearn/homedata/blob/master/img/room0room1.png?raw=true)
+
+![Possible Clean Range](https://github.com/LinkNLearn/homedata/blob/master/img/cleanrange.png?raw=true)
+
+![Damage Point](https://github.com/LinkNLearn/homedata/blob/master/img/damagepoint.png?raw=true)
+
+![Behavior](https://github.com/LinkNLearn/homedata/blob/master/img/behavior.png?raw=true)
