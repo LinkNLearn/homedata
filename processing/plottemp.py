@@ -19,7 +19,7 @@ print('the time key is: ')
 print(timekey)
 print('the temp key is: ')
 print(tempkey)
-print('the room key is: ')
+print('the room id key is: ')
 print(roomkey)
 
 # Using Regular List and For Loop, then Put That List Into Array
@@ -46,7 +46,32 @@ for i in range(N):
     temperature.append(A)
 print('...temperatures loaded.')
 
+# Locate timestamps for each room_id
+room0 = []
+room1 = []
+for i in range(N):
+    # extract id value
+    A = data[i]['room_id']
+    # if room_id = 0, then put marker number in room0 list
+    if A == 0:
+        room0.append(i)
+    # if room_id = 1, then put marker number in room1 list
+    else:
+        room1.append(i)
+
+# Extract temperatures and timestamps from room0
+temperature0 = [temperature[i] for i in room0]
+timestamp0 = [timestamp[i] for i in room0]
+print('temperature and timestamp from room0 sorted')
+
+# Extract temperatures and timestamps from room1
+temperature1 = [temperature[i] for i in room1]
+timestamp1 = [timestamp[i] for i in room1]
+print('temperature and timestamp from room1 sorted')
+
+
 # plot on Matlab
 fig, ax = plt.subplots()
-ax.plot(timestamp, temperature)
+ax.plot(timestamp0, temperature0)
+ax.plot(timestamp1, temperature1)
 plt.show()
