@@ -97,3 +97,7 @@ We need to separate these out into two different data streams.
 ![Damage Point](https://github.com/LinkNLearn/homedata/blob/master/img/damagepoint.png?raw=true)
 
 ![Behavior](https://github.com/LinkNLearn/homedata/blob/master/img/behavior.png?raw=true)
+
+After looking further down within the time series, we can see that additional sensors were added:
+
+![Separated Room by IDs](https://github.com/LinkNLearn/homedata/blob/master/img/separatesensors.png?raw=true)
