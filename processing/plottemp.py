@@ -49,6 +49,8 @@ print('...temperatures loaded.')
 # Locate timestamps for each room_id
 room0 = []
 room1 = []
+room3 = []
+room6 = []
 for i in range(N):
     # extract id value
     A = data[i]['room_id']
@@ -56,8 +58,12 @@ for i in range(N):
     if A == 0:
         room0.append(i)
     # if room_id = 1, then put marker number in room1 list
-    else:
+    elif A == 1:
         room1.append(i)
+    elif A == 3:
+        room3.append(i)
+    elif A == 6:
+        room6.append(i)
 
 # Extract temperatures and timestamps from room0
 temperature0 = [temperature[i] for i in room0]
@@ -69,17 +75,28 @@ temperature1 = [temperature[i] for i in room1]
 timestamp1 = [timestamp[i] for i in room1]
 print('temperature and timestamp from room1 sorted')
 
+# Extract temperatures and timestamps from room3
+temperature3 = [temperature[i] for i in room3]
+timestamp3 = [timestamp[i] for i in room3]
+print('temperature and timestamp from room3 sorted')
 
+# Extract temperatures and timestamps from room6
+temperature6 = [temperature[i] for i in room6]
+timestamp6 = [timestamp[i] for i in room6]
+print('temperature and timestamp from room6 sorted')
+
+"""
 # plot on Matlab
 fig, ax = plt.subplots()
 ax.plot(timestamp0, temperature0)
 ax.plot(timestamp1, temperature1)
 plt.show()
-
+"""
 
 # Cleaning Rules - Creating Temperature Rails, Extracting Indicies
 HighTemp = 100
 LowTemp = 30
+
 validtemproom0 = []
 validtimeroom0 = []
 
@@ -101,8 +118,27 @@ for i in range(len(temperature1)):
         validtemproom1.append(temperature1[i])
         validtimeroom1.append(timestamp1[i])
 
+validtemproom3 = []
+validtimeroom3 = []
+# for range of temperature0 - our new matrix of room0 temps
+for i in range(len(temperature3)):
+    if temperature3[i] < HighTemp and temperature3[i] > LowTemp:
+        validtemproom3.append(temperature3[i])
+        validtimeroom3.append(timestamp3[i])
+
+validtemproom6 = []
+validtimeroom6 = []
+# for range of temperature0 - our new matrix of room0 temps
+for i in range(len(temperature6)):
+    if temperature6[i] < HighTemp and temperature6[i] > LowTemp:
+        validtemproom6.append(temperature6[i])
+        validtimeroom6.append(timestamp6[i])
+
+
 
 fig, ax = plt.subplots()
 ax.plot(validtimeroom0, validtemproom0)
 ax.plot(validtimeroom1, validtemproom1)
+ax.plot(validtimeroom3, validtemproom3)
+ax.plot(validtimeroom6, validtemproom6)
 plt.show()
