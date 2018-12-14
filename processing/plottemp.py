@@ -136,9 +136,15 @@ for i in range(len(temperature6)):
 
 
 
-fig, ax = plt.subplots()
-ax.plot(validtimeroom0, validtemproom0)
-ax.plot(validtimeroom1, validtemproom1)
-ax.plot(validtimeroom3, validtemproom3)
-ax.plot(validtimeroom6, validtemproom6)
+# https://matplotlib.org/users/annotations_intro.html
+fig, ax = plt.subplots(nrows=2,ncols=1,sharex=True)
+ax[0].plot(validtimeroom0, validtemproom0, label='Upstairs Bedroom')
+ax[0].plot(validtimeroom1, validtemproom1, label='Ground Floor')
+ax[1].plot(validtimeroom3, validtemproom3,'g',label='Attic')
+ax[1].plot(validtimeroom6, validtemproom6,'r',label='Basement')
+ax[0].set_title('Temperature Over Time in House')
+h1, l1 = ax[0].get_legend_handles_labels()
+h2, l2 = ax[1].get_legend_handles_labels()
+ax[0].legend(h1, l1)
+ax[1].legend(h2, l2)
 plt.show()
