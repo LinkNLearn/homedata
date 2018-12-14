@@ -93,3 +93,48 @@ We need to separate these out into two different data streams.
 ![Separated Room by IDs](https://github.com/LinkNLearn/homedata/blob/master/img/separatesensors.png?raw=true)
 
 ![Separated Room on Two Plots](https://github.com/LinkNLearn/homedata/blob/master/img/seperatedareas.png?raw=true)
+
+# Adding Weather Dataset
+
+## Hourly Averages
+
+* We added weather data by looking at public datasets available online for areas nearby where the data was collected.
+* We selected a weather station at the MSP airport, and then requested a CSV download of daily averages for the time period in question.
+
+https://www.ncdc.noaa.gov/cdo-web/datasets/GHCND/stations/GHCND:USW00014922/detail
+
+## Averages By the Minute
+
+* Minute station data can be accessed at this site:
+
+https://www.ncdc.noaa.gov/data-access/land-based-station-data
+
+* 1-Minute Data
+
+ftp://ftp.ncdc.noaa.gov/pub/data/asos-onemin/
+
+From the documentation:
+
+DSI 6405 files (page one data): Each data file contains data for one station-month.
+The files names for the page one data begin with 64050 (for data set name), followed
+by the 4 character call letter identifier (e.g. KNYC = New York Central Park, NY),
+the 4 digit year and two digit month. The file extensions are ".dat".
+The format documentation for these files are available at
+
+https://www1.ncdc.noaa.gov/pub/data/documentlibrary/tddoc/td6405.pdf
+
+Weather Station Identifiers:
+
+http://www.weathergraphics.com/identifiers/
+
+ASOS Weather Station Identifiers
+
+https://www.faa.gov/air_traffic/weather/asos/
+
+MSP ASOS Data - KMSP
+
+https://www.aviationweather.gov/metar/data?ids=KMSP&format=raw&date=0&hours=36
+
+# Handling Timestamps
+
+https://pythonprogramming.net/unix-time-matplotlib-tutorial/
