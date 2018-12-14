@@ -90,14 +90,6 @@ We need to separate these out into two different data streams.
 
 ## Looking Closer At Temperature Data After Separation
 
-![Rooms Separated](https://github.com/LinkNLearn/homedata/blob/master/img/room0room1.png?raw=true)
-
-![Possible Clean Range](https://github.com/LinkNLearn/homedata/blob/master/img/cleanrange.png?raw=true)
-
-![Damage Point](https://github.com/LinkNLearn/homedata/blob/master/img/damagepoint.png?raw=true)
-
-![Behavior](https://github.com/LinkNLearn/homedata/blob/master/img/behavior.png?raw=true)
-
-After looking further down within the time series, we can see that additional sensors were added:
-
 ![Separated Room by IDs](https://github.com/LinkNLearn/homedata/blob/master/img/separatesensors.png?raw=true)
+
+![Separated Room on Two Plots](https://github.com/LinkNLearn/homedata/blob/master/img/seperatedareas.png?raw=true)
