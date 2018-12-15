@@ -1,15 +1,83 @@
 import numpy as np
+import pandas as pd
 import time
 import matplotlib
 import json as json
 import datetime # https://docs.python.org/3.3/library/datetime.html
 import matplotlib.pyplot as plt
 import numpy as np
+import os
 
-
-path = 'room_temp.json' # path to our document containing json
+path = 'C:\\Dropbox\\meetups\\LinkNLearn\\homedata\\processing\\room_temp.json' # path to our document containing json
 thing = open(path) # put the json document into thing
-data = json.load(thing) # use json.load to parse json into a list
+#data = json.load(thing) # use json.load to parse json into a list
+
+# import data as pandas dataframe
+data = pd.read_json('C:\\Dropbox\\meetups\\LinkNLearn\\homedata\\processing\\room_temp.json')
+
+# datatypes in the dataframe
+data.dtypes
+
+# summary info
+data.info()
+data.head()     # immediate problem: some obs are room 0, some are room 1
+
+# set index as datetime-room
+data = data.set_index('date_time')
+data.head()
+
+# separate room 0 and room 1
+select0=data['room_id']==0
+select1=data['room_id']==1
+
+room0=data[select0]
+room1=data[select1]
+
+print(room0.head())
+print(room1.head())
+
+# plot raw humidity data
+room0['humidity'].plot()
+room1['humidity'].plot()
+plt.show()
+
+# resample humidity to DAILY average and plot rolling average (smoothed time series)
+humid_day0 = room0['humidity'].resample('D').mean()
+humid_day1 = room1['humidity'].resample('D').mean()
+humid_day0.plot(label='Room 0')
+humid_day1.plot(label='Room 1')
+plt.legend()
+plt.title('Average daily humidity in rooms 0 and 1')
+plt.show()          # the spike on humid_day1 dominates
+
+
+# WEEKLY humidity
+humid_week0 = room0['humidity'].resample('W').mean()
+humid_week1 = room1['humidity'].resample('W').mean()
+humid_week0.plot(label='Room 0')
+humid_week1.plot(label='Room 1')
+plt.legend()
+plt.title('Average weekly humidity in rooms 0 and 1')
+plt.show()          # the spike on humid_day1 still dominates, but less so
+
+# MONTHLY average humidity
+humid_month0 = room0['humidity'].resample('M').mean()
+humid_month1 = room1['humidity'].resample('M').mean()
+humid_month0.plot(label='Room 0')
+humid_month1.plot(label='Room 1')
+plt.legend()
+plt.title('Average monthly humidity in rooms 0 and 1')
+plt.show()
+
+# YEARLY average humidity
+humid_year0 = room0['humidity'].resample('Y').mean()
+humid_year1 = room1['humidity'].resample('Y').mean()
+humid_year0.plot(label='Room 0')
+humid_year1.plot(label='Room 1')
+plt.legend()
+plt.title('Average yearly humidity in rooms 0 and 1')
+plt.show()          # LOL! Not enough data for this to be useful
+
 
 keys = data[0].keys()
 tempkey = list(keys)[2]
