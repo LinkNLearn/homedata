@@ -1,10 +1,9 @@
 import numpy as np
 import time
 import matplotlib
+import matplotlib.pyplot as plt
 import json as json
 import datetime # https://docs.python.org/3.3/library/datetime.html
-import matplotlib.pyplot as plt
-import numpy as np
 
 
 path = 'room_temp.json' # path to our document containing json
