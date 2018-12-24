@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>mpld3-flask</title>
+</head>
+<body>
+  <header>
+  </header>
+  <div class="container">
+    Below you should see our rudimentary plot which was saved at savedplot.html.
+    <!--
+      Below here, we can include the saved plot html which was previously generated.
+      -->
+    {% include 'savedplot.html' %}
+  </div>
+  <div class="container">
+    {% block content %}
+    {% endblock %}
+  </div>
+</body>

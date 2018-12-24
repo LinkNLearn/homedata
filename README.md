@@ -90,9 +90,71 @@ We need to separate these out into two different data streams.
 
 ## Looking Closer At Temperature Data After Separation
 
+We created the following graphs within the plottemp.py file using the library matplotlib.
+
 ![Separated Room by IDs](https://github.com/LinkNLearn/homedata/blob/master/img/separatesensors.png?raw=true)
 
 ![Separated Room on Two Plots](https://github.com/LinkNLearn/homedata/blob/master/img/seperatedareas.png?raw=true)
+
+# Deploying an App on Flask
+
+One of the main goals of this project is to be able to deploy an app based off of data analysis and explore what that means.  In order to accomplish this, we're going to take the simplest route possible toward actually deploying said app on the web via a free hosting service which abstracts away the need to actually build and manage a server - called Heroku.
+
+We're also going to use a Python-based library which allows us to quickly and easily create a web framework, known as Flask.  This will allow us to deploy a, "minimum viable product," and understand more about deployment.  Optionally we can also set up a deployment pipeline such that we can improve and modify the app over time and see what that looks like in, "production" on the web itself.
+
+## Sketching Out & Designing The app
+
+Below we have created a super simple sketch of what we think the app would look like and the various pieces involved.  This is a typical first step when designing an app - create a prototype on paper or on a whiteboard which describes the parts and pieces that you wish to build.
+
+![App Sketch](https://github.com/LinkNLearn/homedata/blob/master/img/appdraft.png?raw=true)
+
+## Visualizing the Data in html
+
+We use a plugin known as mpld3.  This is basically an extension of our main graphing library, known as matplotlib.  Basically we spit the matplotlib object into a variable, and then mpld3 converts that variable into various possible formats, including:
+
+* a string of html
+* an html file, e.g. 'file.html'
+* a json object, which can be used to create a plot via javascript plugins.
+* an svg image, which can be displayed on a page
+
+There are various trade off to the options above.  In using static files, we would hypothetically require less processing power and time and more storage as they would be stored as files on a particular machine to be later recalled, however they are not as instant in terms of what a particular user may be asking for at a given time.
+
+From the [mpld3 FAQ](https://mpld3.github.io/faq.html) we see that mpld3 is only designed for datasets under a thousand points.  Hence, for our purposes this will be for demo only and to get our application up and running.
+
+Now that we know more about how this particular app works, we may wish to change our drawing to better reflect the reality and limitations of the design itself.  For example, since we can only use 1000 data points at a time, we may only wish to show about 6 hour's worth of data from our temperature data set (assuming two sensors), which roughly equates to around 1000 data points.
+
+Other larger dataset python projects include:
+
+* https://bokeh.pydata.org/en/latest/
+* http://vispy.org/
+
+
+## Building the Flask app
+
+We have placed an app within homedata/flask with links to documentation within the comments.
+
+To run the flask app, navigate to that folder on your machine via your terminal, and do:
+
+$ export FLASK_APP=hello.py
+$ python -m flask run
+ * Running on http://127.0.0.1:5000/
+
+ Visit https://127.0.0.1:5000/ to see the app being hosted on your browser.
+
+ If you wish to debug, then use development mode as follows...
+
+$ export FLASK_ENV=development
+$ flask run
+
+## Setting Up A Heroku Instance
+
+In order to set up a Heroku instance, you first need a Heroku account - so go to Heroku.com and sign up for an account.  We set up an app under the Heroku Dashboard and titled it, "homedataflask."  This app can be visited online at the Heroku endpoint:
+
+https://homedataflask.herokuapp.com/
+
+In order to interact with thsi app, we need to
+
+
 
 # Adding Weather Dataset
 
