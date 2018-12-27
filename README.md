@@ -90,6 +90,113 @@ We need to separate these out into two different data streams.
 
 ## Looking Closer At Temperature Data After Separation
 
+We created the following graphs within the plottemp.py file using the library matplotlib.
+
 ![Separated Room by IDs](https://github.com/LinkNLearn/homedata/blob/master/img/separatesensors.png?raw=true)
 
 ![Separated Room on Two Plots](https://github.com/LinkNLearn/homedata/blob/master/img/seperatedareas.png?raw=true)
+
+# Deploying an App on Flask
+
+One of the main goals of this project is to be able to deploy an app based off of data analysis and explore what that means.  In order to accomplish this, we're going to take the simplest route possible toward actually deploying said app on the web via a free hosting service which abstracts away the need to actually build and manage a server - called Heroku.
+
+We're also going to use a Python-based library which allows us to quickly and easily create a web framework, known as Flask.  This will allow us to deploy a, "minimum viable product," and understand more about deployment.  Optionally we can also set up a deployment pipeline such that we can improve and modify the app over time and see what that looks like in, "production" on the web itself.
+
+## Sketching Out & Designing The app
+
+Below we have created a super simple sketch of what we think the app would look like and the various pieces involved.  This is a typical first step when designing an app - create a prototype on paper or on a whiteboard which describes the parts and pieces that you wish to build.
+
+![App Sketch](https://github.com/LinkNLearn/homedata/blob/master/img/appdraft.png?raw=true)
+
+## Visualizing the Data in html
+
+We use a plugin known as mpld3.  This is basically an extension of our main graphing library, known as matplotlib.  Basically we spit the matplotlib object into a variable, and then mpld3 converts that variable into various possible formats, including:
+
+* a string of html
+* an html file, e.g. 'file.html'
+* a json object, which can be used to create a plot via javascript plugins.
+* an svg image, which can be displayed on a page
+
+There are various trade off to the options above.  In using static files, we would hypothetically require less processing power and time and more storage as they would be stored as files on a particular machine to be later recalled, however they are not as instant in terms of what a particular user may be asking for at a given time.
+
+From the [mpld3 FAQ](https://mpld3.github.io/faq.html) we see that mpld3 is only designed for datasets under a thousand points.  Hence, for our purposes this will be for demo only and to get our application up and running.
+
+Now that we know more about how this particular app works, we may wish to change our drawing to better reflect the reality and limitations of the design itself.  For example, since we can only use 1000 data points at a time, we may only wish to show about 6 hour's worth of data from our temperature data set (assuming two sensors), which roughly equates to around 1000 data points.
+
+Other larger dataset python projects include:
+
+* https://bokeh.pydata.org/en/latest/
+* http://vispy.org/
+
+
+## Building the Flask app
+
+We have placed an app within homedata/flask with links to documentation within the comments.
+
+To run the flask app, navigate to that folder on your machine via your terminal, and do:
+
+$ export FLASK_APP=hello.py
+$ python -m flask run
+ * Running on http://127.0.0.1:5000/
+
+ Visit https://127.0.0.1:5000/ to see the app being hosted on your browser.
+
+ If you wish to debug, then use development mode as follows...
+
+$ export FLASK_ENV=development
+$ flask run
+
+## Putting the Flask App Into Production
+
+We have put an app into production at this endpoint:
+
+https://homedataflask.herokuapp.com/
+
+Building and placing the app into production is a complicated process, which deserves its own repo - so we started a new repo at https://github.com/LinkNLearn/homedataflask
+
+Whereas the regular /LinkNLearn/homedata repo can be used for the actual empirical data science experiments and configuration, the /LinkNLearn/homedataflask repo can be used to put that practice into service.
+
+# Adding Weather Dataset
+
+## Hourly Averages
+
+* We added weather data by looking at public datasets available online for areas nearby where the data was collected.
+* We selected a weather station at the MSP airport, and then requested a CSV download of daily averages for the time period in question.
+
+https://www.ncdc.noaa.gov/cdo-web/datasets/GHCND/stations/GHCND:USW00014922/detail
+
+## Averages By the Minute
+
+* Minute station data can be accessed at this site:
+
+https://www.ncdc.noaa.gov/data-access/land-based-station-data
+
+* 1-Minute Data
+
+ftp://ftp.ncdc.noaa.gov/pub/data/asos-onemin/
+
+From the documentation:
+
+DSI 6405 files (page one data): Each data file contains data for one station-month.
+The files names for the page one data begin with 64050 (for data set name), followed
+by the 4 character call letter identifier (e.g. KNYC = New York Central Park, NY),
+the 4 digit year and two digit month. The file extensions are ".dat".
+The format documentation for these files are available at
+
+https://www1.ncdc.noaa.gov/pub/data/documentlibrary/tddoc/td6405.pdf
+
+Weather Station Identifiers:
+
+http://www.weathergraphics.com/identifiers/
+
+ASOS Weather Station Identifiers
+
+https://www.faa.gov/air_traffic/weather/asos/
+
+MSP ASOS Data - KMSP
+
+https://www.aviationweather.gov/metar/data?ids=KMSP&format=raw&date=0&hours=36
+
+# Handling Timestamps
+
+https://pythonprogramming.net/unix-time-matplotlib-tutorial/
