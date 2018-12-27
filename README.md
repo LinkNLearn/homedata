@@ -146,15 +146,15 @@ $ python -m flask run
 $ export FLASK_ENV=development
 $ flask run
 
-## Setting Up A Heroku Instance
+## Putting the Flask App Into Production
 
-In order to set up a Heroku instance, you first need a Heroku account - so go to Heroku.com and sign up for an account.  We set up an app under the Heroku Dashboard and titled it, "homedataflask."  This app can be visited online at the Heroku endpoint:
+We have put an app into production at this endpoint:
 
 https://homedataflask.herokuapp.com/
 
-In order to interact with thsi app, we need to
+Building and placing the app into production is a complicated process, which deserves its own repo - so we started a new repo at https://github.com/LinkNLearn/homedataflask
 
-
+Whereas the regular /LinkNLearn/homedata repo can be used for the actual empirical data science experiments and configuration, the /LinkNLearn/homedataflask repo can be used to put that practice into service.
 
 # Adding Weather Dataset
 
