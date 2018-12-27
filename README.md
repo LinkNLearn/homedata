@@ -106,7 +106,7 @@ We're also going to use a Python-based library which allows us to quickly and ea
 
 Below we have created a super simple sketch of what we think the app would look like and the various pieces involved.  This is a typical first step when designing an app - create a prototype on paper or on a whiteboard which describes the parts and pieces that you wish to build.
 
-![App Sketch](https://github.com/LinkNLearn/homedata/blob/master/img/appdraft.png?raw=true)
+![App Sketch](https://raw.githubusercontent.com/LinkNLearn/homedata/master/img/appdraft.jpg)
 
 ## Visualizing the Data in html
 
