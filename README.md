@@ -106,7 +106,7 @@ We're also going to use a Python-based library which allows us to quickly and ea
 
 Below we have created a super simple sketch of what we think the app would look like and the various pieces involved.  This is a typical first step when designing an app - create a prototype on paper or on a whiteboard which describes the parts and pieces that you wish to build.
 
-![App Sketch](https://github.com/LinkNLearn/homedata/blob/master/img/appdraft.png?raw=true)
+![App Sketch](https://raw.githubusercontent.com/LinkNLearn/homedata/master/img/appdraft.jpg)
 
 ## Visualizing the Data in html
 
@@ -155,6 +155,11 @@ https://homedataflask.herokuapp.com/
 Building and placing the app into production is a complicated process, which deserves its own repo - so we started a new repo at https://github.com/LinkNLearn/homedataflask
 
 Whereas the regular /LinkNLearn/homedata repo can be used for the actual empirical data science experiments and configuration, the /LinkNLearn/homedataflask repo can be used to put that practice into service.
+
+Having built the app, we obtained a better understanding of what the actual architecture looks like and so can draw a better sketch:
+
+![App Architecture](https://github.com/LinkNLearn/homedata/blob/master/img/homedataflask_arch.png?raw=true)
+
 
 # Adding Weather Dataset
 
