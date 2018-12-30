@@ -156,6 +156,11 @@ Building and placing the app into production is a complicated process, which des
 
 Whereas the regular /LinkNLearn/homedata repo can be used for the actual empirical data science experiments and configuration, the /LinkNLearn/homedataflask repo can be used to put that practice into service.
 
+Having built the app, we obtained a better understanding of what the actual architecture looks like and so can draw a better sketch:
+
+![App Architecture](https://github.com/LinkNLearn/homedata/blob/master/img/homedataflask_arch.png?raw=true)
+
+
 # Adding Weather Dataset
 
 ## Hourly Averages
